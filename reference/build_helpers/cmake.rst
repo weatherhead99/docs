@@ -265,14 +265,14 @@ variable. Method also changes references to other packages installation paths in
 with their installation roots.
 This makes most CMake config files portable.
 
-For example, if a package foo installs a file called *fooConfig.cmake* to be used by cmake's ``find_package()`` method, normally this file
-will contain absolute paths to the installed package folder, for example it will contain a line such as:
+For example, if a package foo installs a file called *fooConfig.cmake* to be used by cmake's ``find_package()`` method, sometimes (depending on platform, cmake version and possible manual overrides in the original cmake file) this file
+can contain absolute paths to the installed package folder, for example it may contain a line such as:
 
 .. code-block:: text
 
     SET(Foo_INSTALL_DIR /home/developer/.conan/data/Foo/1.0.0/...)
 
-This will cause cmake's ``find_package()`` method to fail when someone else installs the package via Conan. This function will replace such
+This will cause cmake's ``find_package()`` method to fail when someone else installs the package via Conan. This method will replace such
 paths to:
 
 .. code-block:: text
